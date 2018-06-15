@@ -51,7 +51,7 @@ public class MinemaConfig {
 
 	public final ConfigInteger frameWidth = new ConfigInteger(0, 0, MAX_TEXTURE_SIZE);
 	public final ConfigInteger frameHeight = new ConfigInteger(0, 0, MAX_TEXTURE_SIZE);
-	public final ConfigDouble frameRate = new ConfigDouble(60.0, 1.0, 240.0);
+	public final ConfigDouble frameRate = new ConfigDouble(60.0, 1.0);
 	public final ConfigInteger frameLimit = new ConfigInteger(-1, -1);
 	public final ConfigString capturePath = new ConfigString("movies");
 	public final ConfigBoolean showOverlay = new ConfigBoolean(false);
