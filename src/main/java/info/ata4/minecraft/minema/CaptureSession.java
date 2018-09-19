@@ -36,6 +36,7 @@ public class CaptureSession {
 	private Path captureDir;
 	private CaptureTime time;
 	private int frameLimit;
+	private boolean closeGame;
 	private boolean isEnabled;
 
 	private CaptureSession() {
@@ -51,6 +52,7 @@ public class CaptureSession {
 			MinemaConfig cfg = Minema.instance.getConfig();
 
 			frameLimit = cfg.frameLimit.get();
+			closeGame = cfg.closeGame.get();
 			captureDir = Paths.get(cfg.capturePath.get());
 
 			if (!Files.exists(captureDir)) {
@@ -119,6 +121,10 @@ public class CaptureSession {
 
 			if (frameLimit > 0 && time.getNumFrames() >= frameLimit) {
 				stopCapture();
+				
+				if (closeGame)
+					System.exit(0);
+				
 				return;
 			}
 

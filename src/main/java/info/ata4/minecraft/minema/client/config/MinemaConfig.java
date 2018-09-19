@@ -53,6 +53,7 @@ public class MinemaConfig {
 	public final ConfigInteger frameHeight = new ConfigInteger(0, 0, MAX_TEXTURE_SIZE);
 	public final ConfigDouble frameRate = new ConfigDouble(60.0, 1.0);
 	public final ConfigInteger frameLimit = new ConfigInteger(-1, -1);
+	public final ConfigBoolean closeGame = new ConfigBoolean(false);
 	public final ConfigString capturePath = new ConfigString("movies");
 	public final ConfigBoolean showOverlay = new ConfigBoolean(false);
 	public final ConfigBoolean captureDepth = new ConfigBoolean(false);
@@ -86,6 +87,7 @@ public class MinemaConfig {
 		frameHeight.link(cfg, CAPTURING_CATEGORY, "frameHeight", LANG_KEY);
 		frameRate.link(cfg, CAPTURING_CATEGORY, "frameRate", LANG_KEY);
 		frameLimit.link(cfg, CAPTURING_CATEGORY, "frameLimit", LANG_KEY);
+		closeGame.link(cfg, CAPTURING_CATEGORY, "closeGame", LANG_KEY);
 		capturePath.link(cfg, CAPTURING_CATEGORY, "capturePath", LANG_KEY);
 		showOverlay.link(cfg, CAPTURING_CATEGORY, "showOverlay", LANG_KEY);
 		captureDepth.link(cfg, CAPTURING_CATEGORY, "captureDepth", LANG_KEY);
