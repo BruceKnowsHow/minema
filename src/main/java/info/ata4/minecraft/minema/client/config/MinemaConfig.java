@@ -62,6 +62,7 @@ public class MinemaConfig {
 	public final ConfigBoolean syncEngine = new ConfigBoolean(true);
 	public final ConfigBoolean preloadChunks = new ConfigBoolean(true);
 	public final ConfigBoolean forcePreloadChunks = new ConfigBoolean(false);
+	public final ConfigBoolean positiveXonly = new ConfigBoolean(false);
 
 	public MinemaConfig(Configuration cfg) {
 		this.configForge = cfg;
@@ -96,6 +97,7 @@ public class MinemaConfig {
 		syncEngine.link(cfg, ENGINE_CATEGORY, "syncEngine", LANG_KEY);
 		preloadChunks.link(cfg, ENGINE_CATEGORY, "preloadChunks", LANG_KEY);
 		forcePreloadChunks.link(cfg, ENGINE_CATEGORY, "forcePreloadChunks", LANG_KEY);
+		positiveXonly.link(cfg, ENGINE_CATEGORY, "positiveXonly", LANG_KEY);
 	}
 
 	public Configuration getConfigForge() {

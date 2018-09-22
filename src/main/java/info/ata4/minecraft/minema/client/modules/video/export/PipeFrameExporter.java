@@ -28,6 +28,9 @@ import info.ata4.minecraft.minema.CaptureSession;
 import info.ata4.minecraft.minema.Minema;
 import info.ata4.minecraft.minema.client.config.MinemaConfig;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+
 /**
  *
  * @author Nico Bergemann <barracuda415 at yahoo.de>
@@ -36,11 +39,14 @@ public class PipeFrameExporter extends FrameExporter {
 
 	private Process proc;
 	private WritableByteChannel pipe;
-
+	
 	@Override
 	protected void doExportFrame(ByteBuffer buffer) throws Exception {
 		if (pipe.isOpen()) {
-			pipe.write(buffer);
+			
+			if ((Minecraft.getMinecraft().player.posX > 1.0) || (!Minema.instance.getConfig().positiveXonly.get()))
+				pipe.write(buffer);
+			
 			buffer.rewind();
 		}
 	}
