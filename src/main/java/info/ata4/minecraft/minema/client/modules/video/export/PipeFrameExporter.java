@@ -44,7 +44,7 @@ public class PipeFrameExporter extends FrameExporter {
 	protected void doExportFrame(ByteBuffer buffer) throws Exception {
 		if (pipe.isOpen()) {
 			
-			if ((Minecraft.getMinecraft().player.posX > 1.0) || (!Minema.instance.getConfig().positiveXonly.get()))
+			if ((Minecraft.getMinecraft().player.posX > Minema.instance.getConfig().Xlimit.get()) || (!Minema.instance.getConfig().useXlimit.get()))
 				pipe.write(buffer);
 			
 			buffer.rewind();

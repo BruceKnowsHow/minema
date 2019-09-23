@@ -62,7 +62,8 @@ public class MinemaConfig {
 	public final ConfigBoolean syncEngine = new ConfigBoolean(true);
 	public final ConfigBoolean preloadChunks = new ConfigBoolean(true);
 	public final ConfigBoolean forcePreloadChunks = new ConfigBoolean(false);
-	public final ConfigBoolean positiveXonly = new ConfigBoolean(false);
+	public final ConfigBoolean useXlimit = new ConfigBoolean(false);
+	public final ConfigDouble Xlimit = new ConfigDouble(0.0, -Double.MAX_VALUE, Double.MAX_VALUE);
 
 	public MinemaConfig(Configuration cfg) {
 		this.configForge = cfg;
@@ -97,7 +98,8 @@ public class MinemaConfig {
 		syncEngine.link(cfg, ENGINE_CATEGORY, "syncEngine", LANG_KEY);
 		preloadChunks.link(cfg, ENGINE_CATEGORY, "preloadChunks", LANG_KEY);
 		forcePreloadChunks.link(cfg, ENGINE_CATEGORY, "forcePreloadChunks", LANG_KEY);
-		positiveXonly.link(cfg, ENGINE_CATEGORY, "positiveXonly", LANG_KEY);
+		useXlimit.link(cfg, ENGINE_CATEGORY, "useXlimit", LANG_KEY);
+		Xlimit.link(cfg, ENGINE_CATEGORY, "Xlimit", LANG_KEY);
 	}
 
 	public Configuration getConfigForge() {
